@@ -3,25 +3,25 @@
 <body>
   <head>
     <style media="screen">
-      @import url(https://fonts.googleapis.com/css?family=Open+Sans:400, 700);
-    body {
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:400, 700);
+   body {
       font-family:'Open Sans', sans-serif;
       font-size: 14px;
       color: #333;
-    }
-    .wrapper {
+  }
+  .wrapper {
       position: relative;
       padding-top: 2em;
-    }
-    .pointer {
+  }
+  .pointer {
       position: absolute;
       height: 4000%;
       border-left: 2px solid red;
       z-index:400;
       top: 0;
       transition: left 1s ease-in-out;
-    }
-    .pointer .server {
+  }
+  .pointer .server {
       position: absolute;
       left: 0;
       background: red;
@@ -30,8 +30,8 @@
       font-weight: bold;
       padding: 4px 6px;
       margin-left: -2px;
-    }
-    .pointer .local {
+  }
+  .pointer .local {
       position: absolute;
       right: 2px;
       background: #B6B6B6;
@@ -40,52 +40,52 @@
       font-weight: bold;
       padding: 4px 6px;
       margin-left: 0px;
-    }
-    .pointer .server strong {
+  }
+  .pointer .server strong {
       position: absolute;
       top: 2.1em;
       color: #B9B9B9;
       left: 6px;
       width: 10em;
-    }
-    .pointer .local strong {
+  }
+  .pointer .local strong {
       position: absolute;
       top: 2.1em;
       color: #B9B9B9;
       right: 6px;
       width: 10em;
       text-align: right;
-    }
-    .bar {
+  }
+  .bar {
       display: flex;
       flex-wrap: nowrap;
-    }
-    h2 {
+  }
+  h2 {
       font-size: 1em;
       font-weight: bold;
       width: 100%;
       margin: 0.25em 0;
       color: #AAA;
-    }
-    .bar > div {
+  }
+  .bar > div {
       box-sizing: border-box;
       padding: 0.5em;
       font-size: 0.8em;
       position: relative;
       font-weight: bold;
-    }
-    .bar > div > span {
+  }
+  .bar > div > span {
       display: inline-block;
       padding: 0px 0 2px 0;
       margin: 2px;
       color: rgba(0,0,0,0.6);
       font-weight: normal;
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    }
-    .bar > div > strong {
-    display: block;
-    }
-    }
+  }
+  .bar > div > strong {
+   display: block;
+  }
+  }
     </style>
   </head>
   <div class="wrapper">
@@ -94,10 +94,8 @@
           <span class="local"><strong>Your time</strong><span>00:00</span></span>
       </div>
   </div>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js">
-
-  </script>
-<scrip>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+<script>
   // Information on all the map metas
   // Each has a name and a list of phases, with
   // each phase having an offset from the previous phase
