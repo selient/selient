@@ -195,7 +195,8 @@
 
           var offset = $(this).data('offset');
 
-          var currentTime = moment.utc();
+          var currentTime = moment();
+//          var currentTime = moment.utc();
 
           // What hour was the start of this 2 hour block?
           var startHour = Math.floor(currentTime.hour()/2)*2;
