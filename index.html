@@ -490,7 +490,7 @@ document.getElementById("item-high").innerHTML = " ";
 document.getElementById("item-high").href = "";
 document.getElementById("item-icon").style.backgroundImage = "";
 document.getElementById("item-icon").style.borderColor = "rgba(255,255,255,0)";
-document.getElementById("chart").style.display = "none";
+//document.getElementById("chart").style.display = "none";
 //if (document.getElementById("chart").src != "loading.php") document.getElementById("chart").src = "loading.php";
 }
 
@@ -514,8 +514,8 @@ $("#item-name").autocomplete({
     document.getElementById("item-icon").style.borderColor = itemBorder;
     document.getElementById("item-icon").style.backgroundImage = "url('"+ui.item.img+"')";
 
-    document.getElementById("chart").style.display = "none";
-    document.getElementById("chart").src = "chart.php?id=" + ui.item.id;
+//    document.getElementById("chart").style.display = "none";
+//    document.getElementById("chart").src = "chart.php?id=" + ui.item.id;
 
     document.getElementById("item-high").innerHTML = "loading...";
 
