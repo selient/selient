@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<body>
+<body onload="init();">
   <head>
     <style media="screen">
     @import url(https://fonts.googleapis.com/css?family=Open+Sans:400, 700);
@@ -86,6 +86,283 @@
    display: block;
   }
   }
+
+  /*	gw2tpcalc.css
+	Original Content Copyright 2012, Erland Kelley
+	Guild Wars 2 is a registered trademark of NCsoft Corporation.
+*/
+
+body {
+	margin: 0;
+	font-family: "Trebuchet MS", sans-serif;
+	background: rgba(240,240,240,0.75);
+	width: 100%;
+}
+
+div#page, form#trade {
+	width: 480px;
+}
+
+div#page {
+	margin: 32px auto;
+}
+
+.clear {
+	clear: both;
+}
+
+td { position: relative; }
+
+span.small { font-size: 8pt; }
+
+#inputs, #outputs {
+	margin: 8px;
+}
+
+#inputs {
+	float: left;
+	text-align: left;
+	position: absolute;
+	z-index: 2;
+}
+
+#inputs td {
+	vertical-align: bottom;
+}
+
+#outputs {
+	float: right;
+	text-align: right;
+}
+
+#outputs td {
+	vertical-align: middle;
+}
+
+div.line {
+	height: 1px;
+	background-color: #000;
+	border-bottom: 1px solid #fff);
+	opacity: 0.5;
+}
+
+
+/* header */
+
+div#header {
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 32px;
+	margin: 0px auto;
+	background: #dc2521 url('../img/logo.png') no-repeat center center;
+	background-size: 480px 32px;
+}
+
+
+/* footer */
+
+div#footer {
+	position: absolute;
+	bottom: 0px;
+	margin: 0px auto;
+	width: 100%;
+	background: rgba(224,224,224,0.5);
+	text-align: center;
+	padding-bottom: 2px;
+}
+
+div#version {
+	display: inline-block;
+	position: absolute;
+	bottom: 8px;
+	right: 4px;
+	height: 1em;
+	font-size: 8px;
+	z-index: 9;
+}
+
+
+/* Labels */
+
+label {
+	display: block;
+}
+
+#inputs label {
+	text-align: left;
+}
+
+#outputs label {
+	font-size: 10pt;
+	text-align: right;
+}
+
+#inputs label.sub,
+#outputs label.sub {
+	font-size: 8pt;
+	text-align: right;
+	opacity: 0.5;
+}
+
+
+
+/* Fields */
+
+#inputs input#quantity {
+	padding: 2px;
+	width: 56px;
+}
+
+#inputs input#item-name {
+	padding: 2px;
+	width: 194px;
+	text-align: left;
+}
+
+#inputs input[type=text] {
+	font-family: sans-serif;
+	font-size: 12pt;
+	width: 40px;
+	text-align: right;
+	padding: 2px 20px 2px 2px;
+	border: 1px solid rgba(128,128,128,0.5);
+	background-color: rgba(128,128,128,0.25);
+	-moz-box-shadow: inset 0 1px 2px rgba(128,128,128,0.25), 0 1px 0 rgba(255,255,255,0.75);
+	-webkit-box-shadow: inset 0 1px 2px rgba(128,128,128,0.25), 0 1px 0 rgba(255,255,255,0.75);
+	box-shadow: inset 0 1px 2px rgba(128,128,128,0.25), 0 1px 0 rgba(255,255,255,0.75);
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+
+/* Buttons */
+
+input[type=submit],
+input[type=reset] {
+	float: right;
+}
+
+
+/* Links */
+
+a {
+	text-decoration: none;
+	color: #225e9b;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #000;
+}
+
+a.function {
+	display: inline-block;
+	float: right;
+	font-size: 8pt;
+	margin-top: 4pt;
+	z-index: 2;
+}
+
+a#paypal {
+	display: inline-block;
+	font-size: 8pt;
+	z-index: 2;
+}
+
+td.links {
+	padding-top: 1em;
+	font-size: 9pt;
+}
+
+/* Currency */
+
+span.money {
+	display: inline-block;
+	font-size: 14pt;
+	font-weight: bold;
+	text-align: right;
+	margin-left: 8px;
+}
+
+span.money span {
+	display: inline-block;
+	padding-right: 18px;
+	margin-right: 4px;
+}
+
+span.copper { background: url('../img/copper.png') no-repeat right center; }
+span.silver { background: url('../img/silver.png') no-repeat right center; }
+span.gold {	background: url('../img/gold.png') no-repeat right center; }
+
+input#buy-gold, input#sell-gold { background: url('../img/gold.png') no-repeat 44px center; }
+input#buy-silver, input#sell-silver { background: url('../img/silver.png') no-repeat 44px center; }
+input#buy-copper, input#sell-copper { background: url('../img/copper.png') no-repeat 44px center; }
+
+span.positive { color: #080; }
+span.negative { color: #800; }
+
+
+/* Autocomplete */
+
+ul.ui-autocomplete {
+	background-color: #fff;
+	background-color: rgba(255,255,255,0.85);
+	width: 270px;
+	list-style: none;
+	border: 1px solid #ccc;
+	font-size: 12px;
+	margin: 0px;
+	padding: 0px;
+}
+
+ul.ui-autocomplete li.ui-menu-item a {
+	display: block;
+	padding: 1px;
+	color: #000;
+}
+
+ul.ui-autocomplete li.ui-menu-item a.ui-state-hover,
+ul.ui-autocomplete li.ui-menu-item a:hover {
+	color: #fff;
+	background-color: #dc2521;
+	text-decoration: none;
+}
+
+ul.ui-autocomplete li.ui-menu-item a:active {}
+
+
+/* Item Icon */
+
+div#item-icon {
+	vertical-align: top;
+	margin-top: -4px;
+	margin-left: 2px;
+	height: 32px;
+	width: 32px;
+	border: 2px solid rgba(255,255,255,0);
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	background: no-repeat center center;
+	-moz-box-shadow: inset 0 1px 2px rgba(128,128,128,0.25), 0 1px 0 rgba(255,255,255,0.75);
+	-webkit-box-shadow: inset 0 1px 2px rgba(128,128,128,0.25), 0 1px 0 rgba(255,255,255,0.75);
+	box-shadow: inset 0 1px 2px rgba(128,128,128,0.25), 0 1px 0 rgba(255,255,255,0.75);
+}
+
+/* Chart */
+
+div.chart {
+	position:absolute;
+	bottom:0px;
+	width:100%;
+	margin:0;
+}
+
+#chart {
+	border:0px;
+	margin:0;
+	display: none;
+}
     </style>
   </head>
   <div class="wrapper">
@@ -98,6 +375,137 @@
 
   <hr>
 
+  <div id="page">
+
+  	<table id="outputs">
+  		<tr>
+  			<td colspan="3">
+  				<label>&nbsp;</label>
+  			</td>
+  		</tr>
+  		<tr>
+  			<td><label for="revenue" class="revenue">Revenue</label></td>
+  			<td><span id="revenue" class="money">0</span></td>
+  		</tr>
+  		<tr>
+  			<td><label for="cost" class="cost">&ndash; Cost</label></td>
+  			<td><span id="cost" class="money">0</span></td>
+  		</tr>
+  		<tr>
+  			<td><label for="listing-fee" class="listing-fee">&ndash; Listing Fee</label></td>
+  			<td><span id="listing-fee" class="money">1</span></td>
+  		</tr>
+  		<tr>
+  			<td><label for="sale-fee" class="sale-fee">&ndash; Sale Fee</label></td>
+  			<td><span id="sale-fee" class="money">0</span></td>
+  		</tr>
+  		<tr>
+  			<td></td>
+  			<td><div class="line"></div></td>
+  		</tr>
+  		<tr>
+  			<td><label for="profit" class="profit">= Profit</label></td>
+  			<td><span id="profit" class="money">-1</span></td>
+  		</tr>
+  		<tr>
+  			<td colspan="2"><label class="sub" id="profit-percent"></label></td>
+  		</tr>
+  		<tr>
+  			<td colspan="2" class="links">
+  				<a href="blog" target="_blank">blog &raquo;</a><br />
+  				<a href="javascript:paypal();">donate &raquo;</a><br />
+  			</td>
+  		</tr>
+  	</table>
+
+  	<form name="trade">
+
+  		<table id="inputs">
+
+  			<tr>
+  				<td colspan="3">
+  					<a id="item-high" class="function" href="#"></a>
+  					<label for="item-name">Item Name</label>
+  				</td>
+  			</tr>
+
+  			<tr>
+  				<td colspan="3">
+  					<input id="item-id" name="item-id" type="hidden" />
+  					<input id="item-name" name="item-name" type="text" onChange="clearItem();" />
+  					<label for="item-name" class="sub">(optional)</label>
+  				</td>
+  				<td style="vertical-align: top;">
+  					<div id="item-icon"></div>
+  				</td>
+  			</tr>
+
+  			<tr>
+  				<td colspan="3">
+  					<a id="buy-break-even" class="function" href="#"></a>
+  					<label>Buy Price</label>
+  				</td>
+  			</tr>
+
+  			<tr>
+  				<td>
+  					<input id="buy-gold" class="money"  name="buy-gold" type="text" maxlength="4" onChange="calculate();" />
+  					<label for="buy-gold" class="sub">gold</label>
+  				</td>
+  				<td>
+  					<input id="buy-silver" class="money"  name="buy-silver" type="text" maxlength="6" onChange="calculate();" />
+  					<label for="buy-silver" class="sub">silver</label>
+  				</td>
+  				<td>
+  					<input id="buy-copper" class="money"  name="buy-copper" type="text" maxlength="8" onChange="calculate();" value="" />
+  					<label for="buy-copper" class="sub">copper</label>
+  				</td>
+  			</tr>
+
+  			<tr>
+  				<td colspan="3">
+  					<a id="sell-break-even" class="function" href="#"></a>
+  					<label>Sell Price</label>
+  				</td>
+  			</tr>
+
+  			<tr>
+  				<td>
+  					<input id="sell-gold" class="money" name="sell-gold" type="text" maxlength="4" onChange="calculate();" />
+  					<label for="sell-gold" class="sub">gold</label>
+  				</td>
+  				<td>
+  					<input id="sell-silver" class="money"  name="sell-silver" type="text" maxlength="6" onChange="calculate();" />
+  					<label for="sell-silver" class="sub">silver</label>
+  				</td>
+  				<td>
+  					<input id="sell-copper" class="money"  name="sell-copper" type="text" maxlength="8" onChange="calculate();" value="" />
+  					<label for="sell-copper" class="sub">copper</label>
+  				</td>
+  			</tr>
+
+  			<tr>
+  				<td colspan="3">
+  					<label for="quantity">Quantity</label>
+  				</td>
+  			</tr>
+
+  			<tr>
+  				<td colspan="2">
+  					<input id="quantity" name="quantity" type="text" maxlength="6" onChange="calculate();" value="1" />
+  				</td>
+  				<td>
+  					<input type="reset" value="reset" />
+  				</td>
+  			</tr>
+
+  		</table>
+
+  	</form>
+
+  	<br class="clear" />
+
+  </div>
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
@@ -260,6 +668,230 @@
   setInterval(movePointer,5000);
   setInterval(updateTimes,5000);
 
+</script>
+<script type="text/javascript">
+/*	gw2tpcalc.js
+Original Content Copyright 2012, Erland Kelley
+Guild Wars 2 is a registered trademark of NCsoft Corporation.
+*/
+
+var gx; var gb; var gs; var gp;
+
+function init() { setInterval(function(){ calculate()},200); }
+
+function calculate() {
+
+// clear item details if user resets form
+if (document.forms["trade"]["item-name"].value == "") clearItem();
+
+// fix quantities
+fix();
+
+// get variables
+var x = Number(document.forms["trade"]["quantity"].value); if (x < 1) x = 1;
+var b = toCopper("buy");
+var s = toCopper("sell");
+
+// check to see if variables have changed
+if (x == gx && b == gb && s == gs) return null;
+gx = x; gb = b; gs = s;
+
+// calculate profit variables
+var c = b * x;
+var r = s * x;
+var l = Math.max(Math.round(r * 0.05), 1);
+var f = Math.round(r * 0.10);
+var p = r - c - l - f;
+
+// display profit variables
+document.getElementById("revenue").innerHTML = toGSC(r, true);
+document.getElementById("cost").innerHTML = toGSC(c, true);
+document.getElementById("listing-fee").innerHTML = toGSC(l, true);
+document.getElementById("sale-fee").innerHTML = toGSC(f, true);
+document.getElementById("profit").innerHTML = toGSC(p, true);
+
+// calculate break even points
+var evenBuy = s - Math.round((Math.max(Math.round(0.05*s*x),1) + Math.round(0.10*s*x)) / x);
+var evenSell = Math.floor(b / 0.85);
+if (evenSell != 0) while (profit(x, b, evenSell) < 0) evenSell ++;
+
+// display break-even points
+document.getElementById("buy-break-even").innerHTML = ((p != 0 && s != 0 && b != evenBuy) ? "even @ " + toGSC(evenBuy, false) : " ");
+document.getElementById("buy-break-even").href = "javascript:setField('buy'," + evenBuy + ");";
+document.getElementById("sell-break-even").innerHTML = ((p != 0 && b != 0 && s != evenSell) ? "even @ " + toGSC(evenSell, false) : " ");
+document.getElementById("sell-break-even").href = "javascript:setField('sell'," + evenSell + ");";
+
+// calculate and display profit margin percentage
+document.getElementById("profit-percent").innerHTML = ((p != 0 && r != 0) ? "(" + (p > 0 ? "+" : "") + (Math.round((p / r) * 1000) / 10) + "%)" : "&nbsp;");
+
+// color-code profit
+document.getElementById("profit").className = "money" + (p < 0 ? " negative" : ((p > 0) ? " positive" : ""));
+
+// wrap up
+hasChanged = false;
+return p;
+
+}
+
+function profit(x, b, s) {
+var c = b * x;
+var r = s * x;
+var l = Math.round(r * 0.05);  if (l < 1) l = 1;
+var f = Math.round(r * 0.10);
+return (r - c - l - f);
+}
+
+function setField(field, val) {
+document.forms["trade"][(field+"-gold")].value = "";
+document.forms["trade"][(field+"-silver")].value = "";
+document.forms["trade"][(field+"-copper")].value = val;
+calculate();
+}
+
+function toCopper(field) {
+
+if (field == "buy") {
+  return	Number(document.forms["trade"]["buy-gold"].value) * 10000 +
+      Number(document.forms["trade"]["buy-silver"].value) * 100 +
+      Number(document.forms["trade"]["buy-copper"].value);
+}
+
+if (field == "sell") {
+  return	Number(document.forms["trade"]["sell-gold"].value) * 10000 +
+      Number(document.forms["trade"]["sell-silver"].value) * 100 +
+      Number(document.forms["trade"]["sell-copper"].value);
+}
+
+}
+
+function toGSC(val, useSpan) {
+
+if (useSpan) {
+  var openG = "<span class=\"gold\">";	var closeG = "</span>";
+  var openS = "<span class=\"silver\">";	var closeS = "</span>";
+  var openC = "<span class=\"copper\">";	var closeC = "</span>";
+} else {
+  var openG = "";	var closeG = "g";
+  var openS = "";	var closeS = "s";
+  var openC = "";	var closeC = "c";
+}
+
+var sign = (val < 0 ? -1 : 1);
+var g = Math.floor(sign * val / 10000);
+var s = Math.floor((sign * val - g * 10000) / 100);
+var c = sign * val - g * 10000 - s * 100;
+
+
+if (g) return openG + (sign * g) + closeG +
+        openS + s + closeS +
+        openC + c + closeC;
+if (s) return openS + (sign * s) + closeS +
+        openC + c + closeC;
+if (c) return openC + (sign * c) + closeC;
+return openC + "0" + closeC;
+
+}
+
+function fix() {
+
+var quantity = document.forms["trade"]["quantity"];
+var buyCopper = document.forms["trade"]["buy-copper"];
+var buySilver = document.forms["trade"]["buy-silver"];
+var buyGold = document.forms["trade"]["buy-gold"];
+var sellCopper = document.forms["trade"]["sell-copper"];
+var sellSilver = document.forms["trade"]["sell-silver"];
+var sellGold = document.forms["trade"]["sell-gold"];
+
+// numeric characters only
+if (quantity.value != quantity.value.replace(/[^0-9]/g, ''))
+  quantity.value = quantity.value.replace(/[^0-9]/g, '');
+if (buyCopper.value != buyCopper.value.replace(/[^0-9]/g, ''))
+  buyCopper.value = buyCopper.value.replace(/[^0-9]/g, '');
+if (buySilver.value != buySilver.value.replace(/[^0-9]/g, ''))
+  buySilver.value = buySilver.value.replace(/[^0-9]/g, '');
+if (buyGold.value != buyGold.value.replace(/[^0-9]/g, ''))
+  buyGold.value = buyGold.value.replace(/[^0-9]/g, '');
+if (sellCopper.value != sellCopper.value.replace(/[^0-9]/g, ''))
+  sellCopper.value = sellCopper.value.replace(/[^0-9]/g, '');
+if (sellSilver.value != sellSilver.value.replace(/[^0-9]/g, ''))
+  sellSilver.value = sellSilver.value.replace(/[^0-9]/g, '');
+if (sellGold.value != sellGold.value.replace(/[^0-9]/g, ''))
+  sellGold.value = sellGold.value.replace(/[^0-9]/g, '');
+
+// convert currencies
+if (buyCopper.value > 99 && (document.activeElement != buyCopper)) {
+  buySilver.value = Math.floor(buyCopper.value / 100);
+  buyCopper.value -= buySilver.value * 100;
+  if (buySilver.value < 100) buyGold.value = "";
+}
+
+if (buySilver.value > 99 && (document.activeElement != buySilver)) {
+  buyGold.value = Math.floor(buySilver.value / 100);
+  buySilver.value -= buyGold.value * 100;
+}
+
+if (sellCopper.value > 99 && (document.activeElement != sellCopper)) {
+  sellSilver.value = Math.floor(sellCopper.value / 100);
+  sellCopper.value -= sellSilver.value * 100;
+  if (sellSilver.value < 100) sellGold.value = "";
+}
+
+if (sellSilver.value > 99 && (document.activeElement != sellSilver)) {
+  sellGold.value = Math.floor(sellSilver.value / 100);
+  sellSilver.value -= sellGold.value * 100;
+}
+
+}
+
+function clearItem() {
+document.getElementById("item-high").innerHTML = " ";
+document.getElementById("item-high").href = "";
+document.getElementById("item-icon").style.backgroundImage = "";
+document.getElementById("item-icon").style.borderColor = "rgba(255,255,255,0)";
+document.getElementById("chart").style.display = "none";
+//if (document.getElementById("chart").src != "loading.php") document.getElementById("chart").src = "loading.php";
+}
+
+/* Requires jQuery */
+
+//item list auto-complete
+$(function() {
+$("#item-name").autocomplete({
+
+  source: "json/items.php",
+  minLength: 3,
+  select: function( event, ui ) {
+
+    var itemBorder = "rgba(255,255,255,0)"; // transparent
+    if (ui.item.rarity == "1") itemBorder = "#cccccc";
+    if (ui.item.rarity == "2") itemBorder = "#0066cc";
+    if (ui.item.rarity == "3") itemBorder = "#66cc00";
+    if (ui.item.rarity == "4") itemBorder = "#ffcc19";
+    if (ui.item.rarity == "5") itemBorder = "#ff9933";
+    if (ui.item.rarity == "6") itemBorder = "#ff3300";
+    document.getElementById("item-icon").style.borderColor = itemBorder;
+    document.getElementById("item-icon").style.backgroundImage = "url('"+ui.item.img+"')";
+
+    document.getElementById("chart").style.display = "none";
+    document.getElementById("chart").src = "chart.php?id=" + ui.item.id;
+
+    document.getElementById("item-high").innerHTML = "loading...";
+
+    $.getJSON("json/prices.php?id=" + ui.item.id, function(data) {
+      if (data.highSale) {
+        if (data.highSale > 0) {
+          document.getElementById("item-high").innerHTML = "24hr high: " + toGSC(data.highSale, false);
+          document.getElementById("item-high").href = "javascript:setField('sell'," + data.highSale + ");";
+        } else {
+          document.getElementById("item-high").innerHTML = "";
+          document.getElementById("item-high").href = "#";
+        }
+      }
+    });
+  }
+
+});
+});
 </script>
 </body>
 </html>
