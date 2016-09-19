@@ -12,25 +12,27 @@
       </div>
       <br>
   </div>
-
+<div id="pacttimer">
   <hr>
+  下午四點後算隔天  
+   <span class="local"><strong>Your time</strong><span>00:00</span></span>
   <br><br><br><br><br><br>
   <hr>
- [&BIgHAAA=] [&BEwDAAA=] [&BKYBAAA=] [&BNIEAAA=] [&BIMCAAA=] [&BB4CAAA=]
+Mon [&BIgHAAA=] [&BEwDAAA=] [&BKYBAAA=] [&BNIEAAA=] [&BIMCAAA=] [&BB4CAAA=]
 <hr>
- [&BH8HAAA=] [&BEgAAAA=] [&BBEAAAA=] [&BGQCAAA=] [&BJkDAAA=] [&BKgCAAA=]
+Tue [&BH8HAAA=] [&BEgAAAA=] [&BBEAAAA=] [&BGQCAAA=] [&BJkDAAA=] [&BKgCAAA=]
 <hr>
- [&BHoHAAA=] [&BCEDAAA=] [&BLQDAAA=] [&BLQAAAA=] [&BKYAAAA=] [&BFEDAAA=]
+Wen [&BHoHAAA=] [&BCEDAAA=] [&BLQDAAA=] [&BLQAAAA=] [&BKYAAAA=] [&BFEDAAA=]
 <hr>
- [&BKwHAAA=] [&BF0AAAA=] [&BEUDAAA=] [&BJcBAAA=] [&BO4CAAA=] [&BOQBAAA=]
+Thu [&BKwHAAA=] [&BF0AAAA=] [&BEUDAAA=] [&BJcBAAA=] [&BO4CAAA=] [&BOQBAAA=]
 <hr>
- [&BJcHAAA=] [&BNUGAAA=] [&BKYCAAA=] [&BMwCAAA=] [&BHsBAAA=] [&BNMAAAA=]
+Fri [&BJcHAAA=] [&BNUGAAA=] [&BKYCAAA=] [&BMwCAAA=] [&BHsBAAA=] [&BNMAAAA=]
 <hr>
- [&BH8HAAA=] [&BJIBAAA=] [&BF4BAAA=] [&BFMCAAA=] [&BNMCAAA=] [&BB8DAAA=]
+Sat [&BH8HAAA=] [&BJIBAAA=] [&BF4BAAA=] [&BFMCAAA=] [&BNMCAAA=] [&BB8DAAA=]
 <hr>
- [&BIYHAAA=] [&BDoBAAA=] [&BKcBAAA=] [&BO4CAAA=] [&BIUCAAA=] [&BCECAAA=]
+Sun [&BIYHAAA=] [&BDoBAAA=] [&BKcBAAA=] [&BO4CAAA=] [&BIUCAAA=] [&BCECAAA=]
 <hr><br><br><br><br><br><br>
-
+</div>
   <div id="page">
 
   	<table id="outputs">
@@ -245,6 +247,7 @@
       // Set the text and move the pointer to that %
       $('.pointer .server span').text(hour + ":" + minute);
       $('.pointer .local span').text(localHour + ":" + localMinute);
+      $('#pacttimer .local span').text(localHour + ":" + localMinute);
       $('.pointer').css('left', percentOfTwoHours + "%");
   }
 
