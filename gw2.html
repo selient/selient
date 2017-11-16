@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<body onload="init();">
+  <head>
+    <link rel="stylesheet" href="/css/css.css" media="screen" title="no title" charset="utf-8">
+
+  </head>
+  <div class="wrapper">
+      <div class="pointer">
+          <span class="server"><strong>Server time</strong><span>00:00</span></span>
+          <span class="local"><strong>Your time</strong><span>00:00</span></span>
+      </div>
+      <br>
+  </div>
+<div id="pacttimer">
+  <hr>
+  下午四點後算隔天  
+   <span class="local"><strong>Your time</strong><span>00:00</span></span>
+  <br><br><br><br><br><br>
+  <hr>
+Mon [&BIgHAAA=] [&BEwDAAA=] [&BKYBAAA=] [&BNIEAAA=] [&BIMCAAA=] [&BB4CAAA=]
+<hr>
+Tue [&BH8HAAA=] [&BEgAAAA=] [&BBEAAAA=] [&BGQCAAA=] [&BJkDAAA=] [&BKgCAAA=]
+<hr>
+Wen [&BHoHAAA=] [&BCEDAAA=] [&BLQDAAA=] [&BLQAAAA=] [&BKYAAAA=] [&BFEDAAA=]
+<hr>
+Thu [&BKwHAAA=] [&BF0AAAA=] [&BEUDAAA=] [&BJcBAAA=] [&BO4CAAA=] [&BOQBAAA=]
+<hr>
+Fri [&BJcHAAA=] [&BNUGAAA=] [&BKYCAAA=] [&BMwCAAA=] [&BHsBAAA=] [&BNMAAAA=]
+<hr>
+Sat [&BH8HAAA=] [&BJIBAAA=] [&BF4BAAA=] [&BFMCAAA=] [&BNMCAAA=] [&BB8DAAA=]
+<hr>
+Sun [&BIYHAAA=] [&BDoBAAA=] [&BKcBAAA=] [&BO4CAAA=] [&BIUCAAA=] [&BCECAAA=]
+<hr><br><br><br><br><br><br>
+</div>
+  <div id="page">
+
+  	<table id="outputs">
+  		<tr>
+  			<td colspan="3">
+  				<label>&nbsp;</label>
+  			</td>
+  		</tr>
+  		<tr>
+  			<td><label for="revenue" class="revenue">Revenue</label></td>
+  			<td><span id="revenue" class="money">0</span></td>
+  		</tr>
+  		<tr>
+  			<td><label for="cost" class="cost">&ndash; Cost</label></td>
+  			<td><span id="cost" class="money">0</span></td>
+  		</tr>
+  		<tr>
+  			<td><label for="listing-fee" class="listing-fee">&ndash; Listing Fee</label></td>
+  			<td><span id="listing-fee" class="money">1</span></td>
+  		</tr>
+  		<tr>
+  			<td><label for="sale-fee" class="sale-fee">&ndash; Sale Fee</label></td>
+  			<td><span id="sale-fee" class="money">0</span></td>
+  		</tr>
+  		<tr>
+  			<td></td>
+  			<td><div class="line"></div></td>
+  		</tr>
+  		<tr>
+  			<td><label for="profit" class="profit">= Profit</label></td>
+  			<td><span id="profit" class="money">-1</span></td>
+  		</tr>
+  		<tr>
+  			<td colspan="2"><label class="sub" id="profit-percent"></label></td>
+  		</tr>
+  	</table>
+
+  	<form name="trade">
+
+  		<table id="inputs">
+
+  			<tr>
+  				<td colspan="3">
+  					<a id="item-high" class="function" href="#"></a>
+  					<label for="item-name">Item Name</label>
+  				</td>
+  			</tr>
+
+  			<tr>
+  				<td colspan="3">
+  					<input id="item-id" name="item-id" type="hidden" />
+  					<input id="item-name" name="item-name" type="text" onChange="clearItem();" />
+  					<label for="item-name" class="sub">(optional)</label>
+  				</td>
+  				<td style="vertical-align: top;">
+  					<div id="item-icon"></div>
+  				</td>
+  			</tr>
+
+  			<tr>
+  				<td colspan="3">
+  					<a id="buy-break-even" class="function" href="#"></a>
+  					<label>Buy Price</label>
+  				</td>
+  			</tr>
+
+  			<tr>
+  				<td>
+  					<input id="buy-gold" class="money"  name="buy-gold" type="text" maxlength="4" onChange="calculate();" />
+  					<label for="buy-gold" class="sub">gold</label>
+  				</td>
+  				<td>
+  					<input id="buy-silver" class="money"  name="buy-silver" type="text" maxlength="6" onChange="calculate();" />
+  					<label for="buy-silver" class="sub">silver</label>
+  				</td>
+  				<td>
+  					<input id="buy-copper" class="money"  name="buy-copper" type="text" maxlength="8" onChange="calculate();" value="" />
+  					<label for="buy-copper" class="sub">copper</label>
+  				</td>
+  			</tr>
+
+  			<tr>
+  				<td colspan="3">
+  					<a id="sell-break-even" class="function" href="#"></a>
+  					<label>Sell Price</label>
+  				</td>
+  			</tr>
+
+  			<tr>
+  				<td>
+  					<input id="sell-gold" class="money" name="sell-gold" type="text" maxlength="4" onChange="calculate();" />
+  					<label for="sell-gold" class="sub">gold</label>
+  				</td>
+  				<td>
+  					<input id="sell-silver" class="money"  name="sell-silver" type="text" maxlength="6" onChange="calculate();" />
+  					<label for="sell-silver" class="sub">silver</label>
+  				</td>
+  				<td>
+  					<input id="sell-copper" class="money"  name="sell-copper" type="text" maxlength="8" onChange="calculate();" value="" />
+  					<label for="sell-copper" class="sub">copper</label>
+  				</td>
+  			</tr>
+
+  			<tr>
+  				<td colspan="3">
+  					<label for="quantity">Quantity</label>
+  				</td>
+  			</tr>
+
+  			<tr>
+  				<td colspan="2">
+  					<input id="quantity" name="quantity" type="text" maxlength="6" onChange="calculate();" value="1" />
+  				</td>
+  				<td>
+  					<input type="reset" value="reset" />
+  				</td>
+  			</tr>
+
+  		</table>
+
+  	</form>
+
+  	<br class="clear" />
+
+  </div>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
